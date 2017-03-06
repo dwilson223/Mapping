@@ -59,33 +59,33 @@ public class HelloMap extends Activity implements View.OnClickListener
         {
             Intent intent = new Intent(this,MapChooseActivity.class);
             startActivity(intent);
-            //startActivityForResult(intent,0);
-            // react to the menu item being selected...
+                 startActivityForResult(intent,0);
+                //react to the menu item being selected...
             return true;
         }
         return false;
     }
-    //protected void onActivityResult(int requestCode,int resultCode,Intent intent)
-    //{
-//
-    //    if(requestCode==0)
-    //    {
-//
-    //        if (resultCode==RESULT_OK)
-    //        {
-    //            Bundle extras=intent.getExtras();
-    //            boolean cyclemap = extras.getBoolean("com.example.cyclemap");
-    //            if(cyclemap==true)
-    //            {
-    //                mv.setTileSource(TileSourceFactory.CYCLEMAP);
-    //            }
-    //            else
-    //            {
-    //                mv.setTileSource(TileSourceFactory.MAPNIK);
-    //            }
-    //        }
-    //    }
-    //}
+    protected void onActivityResult(int requestCode,int resultCode,Intent intent)
+    {
+
+        if(requestCode==0)
+        {
+
+            if (resultCode==RESULT_OK)
+            {
+                Bundle extras=intent.getExtras();
+                boolean cyclemap = extras.getBoolean("com.example.cyclemap");
+                if(cyclemap==true)
+                {
+                    mv.setTileSource(TileSourceFactory.CYCLEMAP);
+                }
+                else
+                {
+                    mv.setTileSource(TileSourceFactory.MAPNIK);
+                }
+            }
+        }
+    }
 
 
 }
