@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/enterLongitude"
+            android:layout_alignLeft="@+id/enterLongitude"
+            android:layout_alignStart="@+id/enterLongitude"
+            android:layout_alignRight="@+id/enterLongitude"
+            android:layout_alignEnd="@+id/enterLongitude"
+            android:id="@+id/enterLatitude"
+            android:hint="@string/enterLatitude"/>
+
+
+        <EditText
+            android:layout_width="326dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/enterLongitude"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:hint="@string/enterLongitude"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button"
+            android:id="@+id/button"
+            android:layout_below="@+id/enterLongitude"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+</LinearLayout>
