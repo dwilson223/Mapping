@@ -41,6 +41,8 @@ public class SetLocationActivity extends Activity implements View.OnClickListene
         Intent intent = new Intent();
         Bundle bundle=new Bundle();
 
+        bundle.putDouble("com.example.latitude",latitude);
+        bundle.putDouble("com.example.latitude",longitude);
 
         intent.putExtras(bundle);
         setResult(RESULT_OK,intent);

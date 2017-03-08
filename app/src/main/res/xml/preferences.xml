@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+        android:key="lat"
+        android:defaultValue="50.9"
+        android:title="Latitude"
+        android:summary="Shows default Latitude." />
+    <EditTextPreference
+        android:key="lon"
+        android:defaultValue="-1.4"
+        android:title="Longitude"
+        android:summary="Shows default Longitude." />
+    <CheckBoxPreference
+        android:key="autodownload"
+        android:defaultValue="true"
+        android:title="Auto-download"
+        android:summary="Auto-download data about surrounding cinemas?" />
+    <ListPreference
+        android:key="menu"
+        android:title="Menu Type"
+        android:summary="Choose default menu type"
+        android:entries="@array/menuType"
+        android:entryValues="@array/menuTpeCodes"
+        />
+</PreferenceScreen>

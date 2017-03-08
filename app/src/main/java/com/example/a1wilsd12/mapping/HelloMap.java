@@ -2,6 +2,8 @@ package com.example.a1wilsd12.mapping;
 
 import android.app.Activity;
 import org.osmdroid.config.Configuration;
+
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -53,8 +55,10 @@ public class HelloMap extends Activity implements View.OnClickListener
         inflater.inflate(R.menu.menu_hello_map, menu);
         return true;
     }
+
     public boolean onOptionsItemSelected(MenuItem item)
     {
+        // opens choose activity
         if(item.getItemId() == R.id.choosemap)
         {
             Intent intent = new Intent(this,MapChooseActivity.class);
@@ -63,8 +67,30 @@ public class HelloMap extends Activity implements View.OnClickListener
                 //react to the menu item being selected...
             return true;
         }
+
+        // opens set lcoation
+        else if(item.getItemId() == R.id.setLocation)
+        {
+            Intent intent = new Intent(this,SetLocationActivity.class);
+            startActivity(intent);
+            startActivityForResult(intent,1);
+            //react to the menu item being selected...
+            return true;
+        }
+
+        // opens preferences
+        else if(item.getItemId() == R.id.prefs)
+        {
+            Intent intent = new Intent(this,MyPrefsActivity.class);
+            startActivity(intent);
+            startActivityForResult(intent,2);
+            //react to the menu item being selected...
+            return true;
+        }
+
         return false;
     }
+
     protected void onActivityResult(int requestCode,int resultCode,Intent intent)
     {
 
@@ -87,6 +113,19 @@ public class HelloMap extends Activity implements View.OnClickListener
         }
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
 
+        SharedPreferences prefs =
+                PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        double lat = Double.parseDouble ( prefs.getString("lat", "50.9") );
+        double lon = Double.parseDouble ( prefs.getString("lon", "-1.4") );
+
+        mv.getController().setCenter(new GeoPoint(lat, lon));
+
+
+
+    }
 }
 
